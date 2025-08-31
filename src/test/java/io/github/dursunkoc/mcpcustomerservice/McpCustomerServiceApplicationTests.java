@@ -17,16 +17,17 @@ class McpCustomerServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        customerServiceClient.createCustomer(CustomerWrite.builder()
-                        .identityKey("12312312")
-                        .firstName("Abuzer")
-                        .lastName("Yaprakezer")
-                        .email("abzer@gmail.com")
-                        .gsmNo("5301234567")
-                        .birthDate(LocalDate.of(1990, 1, 1))
-                        .gender("E")
-                        .occupation("Engineer")
+        Customer initialCustomer = customerServiceClient.createCustomer(CustomerWrite.builder()
+                .identityKey("12312312")
+                .firstName("Abuzer")
+                .lastName("Yaprakezer")
+                .email("abzer@gmail.com")
+                .gsmNo("5301234567")
+                .birthDate(LocalDate.of(1990, 1, 1))
+                .gender("E")
+                .occupation("Engineer")
                 .build());
+        System.out.println("Initial customer: "+initialCustomer+"...");
         List<Customer> allCustomers = customerServiceClient.getAllCustomers();
         System.out.println(allCustomers);
     }
